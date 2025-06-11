@@ -42,7 +42,7 @@ const petDescriptionElement = document.querySelector('.pet-description');
 
 
 // Базовий URL нашого Backend-сервера
-const API_BASE_URL = 'http://localhost:3000/api';
+const API_BASE_URL = 'https://pet-journal-backend-api.onrender.com';
 
 // Функція для форматування дати з YYYY-MM-DD в DD.MM.YYYY
 // Функція для форматування дати з YYYY-MM-DD в DD.MM.YYYY
