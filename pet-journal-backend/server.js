@@ -1,3 +1,5 @@
+require('dotenv').config(); // Завантажуємо змінні оточення з .env
+
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose'); // Підключаємо Mongoose
@@ -7,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 
 // --- НАЛАШТУВАННЯ БАЗИ ДАНИХ ---
 // ЗАМІНІТЬ ЦЕЙ РЯДОК НА ВАШ РЯДОК ПІДКЛЮЧЕННЯ З MONGODB ATLAS
-const DB_URI = 'mongodb+srv://sergvinn:5ZE2er-ZTMgeXir@cluster0.uvalknx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const DB_URI = process.env.MONGODB_URI; // Отримуємо URI з змінних оточення
 
 mongoose.connect(DB_URI)
     .then(() => console.log('Підключено до MongoDB Atlas!'))
