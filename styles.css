@@ -1,0 +1,504 @@
+* { /* Застосувати до всього! */
+    margin: 0; /* Прибрати відступи по краях */
+    padding: 0; /* Прибрати внутрішні відступи */
+    box-sizing: border-box; /* Дуже важлива штука! Щоб padding і border не збільшували розмір елементів */
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Наш красивий шрифт! */
+    background-color: #f0f2f5; /* Світло-сірий фон, приємний для очей */
+    color: #333; /* Темно-сірий текст */
+    line-height: 1.6; /* Міжрядковий інтервал для кращої читабельності */
+    display: flex; /* Починаємо використовувати Flexbox! Це магія для вирівнювання */
+    justify-content: center; /* Вирівнюємо контент по центру по горизонталі */
+    min-height: 100vh; /* Щоб фон займав весь екран по висоті */
+    padding: 20px; /* Трошки відступу по краях, щоб не "прилипало" до стін */
+}
+
+.app-container {
+    width: 100%; /* Ширина на весь екран */
+    max-width: 900px; /* Максимальна ширина, щоб не розтягувалося занадто */
+    background-color: #ffffff; /* Білий фон для контенту */
+    border-radius: 12px; /* Закруглені кути для елегантності */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Легенька тінь для об'єму */
+    overflow: hidden; /* Щоб нічого не виходило за межі контейнера */
+}
+
+.main-header {
+    background-color: #5b6ed1; /* Красивий фіолетово-синій колір */
+    color: #ffffff; /* Білий текст для контрасту */
+    padding: 20px 30px; /* Внутрішні відступи для заголовка */
+    display: flex; /* Використовуємо Flexbox для вирівнювання */
+    justify-content: space-between; /* Розміщуємо елементи по краях */
+    align-items: center; /* Вирівнюємо по вертикалі */
+    position: sticky; /* Закріплюємо заголовок вгорі при скролінгу */
+    top: 0; /* Закріплюємо зверху */
+    z-index: 1000; /* Щоб заголовок завжди був поверх інших елементів */
+    border-top-left-radius: 12px; /* Закруглені кути зліва */
+    border-top-right-radius: 12px; /* Закруглені кути справа */
+}
+
+.main-header .logo {
+    font-size: 1.8em;/* Розмір шрифту для логотипу */
+    font-weight: 700; /* Жирний шрифт для логотипу */
+}
+
+.main-header ul {
+    list-style: none; /* Прибираємо маркери списку */
+    display: flex; /* Використовуємо Flexbox для горизонтального розташування */
+    gap: 25px; /* Відступи між пунктами меню */
+}
+
+.main-nav a {
+    color: #ffffff ; /* Білий колір тексту для посилань */
+    text-decoration: none; /* Прибираємо підкреслення */
+    font-weight: 500; /* Напівжирний шрифт для посилань */
+    transition: color 0.3s ease; /* Плавний перехід кольору при наведенні */
+}
+
+.main-nav a:hover { /* Коли мишка наводиться на посилання */
+    color: #d1d1f0; /* Змінити колір */
+}
+
+.profile-page {
+    padding: 30px; /* Внутрішні відступи для сторінки профілю */
+    display: flex; /* Використовуємо Flexbox для розташування елементів */
+    flex-direction: column; /* Розташовуємо елементи вертикально */
+    gap: 30px; /* Відступи між елементами */
+}
+
+.pet-profile-card,
+.recent-events-card {
+    background-color: #fdfdfd; /* Білий фон для карток */
+    padding: 25px; /* Внутрішні відступи для карток */
+    border-radius: 10px; /* Закруглені кути для карток */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Легша тінь для внутрішніх карток */
+}
+
+.profile-header {
+    display: flex; /* Використовуємо Flexbox для вирівнювання */
+    align-items: center; /* Вирівнюємо по вертикалі */
+    gap: 20px; /* Відступи між елементами */
+    margin-bottom: 20px; /* Відступ знизу для відокремлення від інших елементів */
+}
+
+.pet-avatar {
+    width: 120px; /* Ширина аватара */
+    height: 120px; /* Висота аватара */
+    border-radius: 50%; /* Кругла форма аватара */
+    object-fit: cover; /* Щоб зображення не спотворювалося */
+    border: 4px solid #7a8efd; /* Товста рамка навколо аватара */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Легка тінь для об'єму */
+}
+
+.pet-info-main h1 {
+    font-size: 2.5em; /* Розмір заголовку */
+    color: #4a5a9d; /* Темно-синій колір для заголовку */
+    margin-bottom: 5px; /* Відступ знизу для відокремлення від підзаголовку */
+}
+
+.pet-species-breed,
+.pet-age-gender{
+    font-size: 1.1em;
+    color: #666; /* Світло-сірий колір для підзаголовків */
+}
+
+.pet-name-item {
+    cursor: pointer; /* Курсор у вигляді руки при наведенні */
+}
+
+.quick-facts-grid {
+    display: grid;/* Використовуємо CSS Grid для розташування елементів */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Автоматичне розташування колонок */
+    gap: 15px; /* Відступи між елементами */
+    margin-top: 30px; /* Відступ зверху для відокремлення від інших елементів */
+}
+
+.fact-item {
+    background-color: #eef1f6;
+    padding: 15px; /* Внутрішні відступи для елементів фактів */
+    border-radius: 8px; /* Закруглені кути для елементів фактів */
+    text-align: center; /* Вирівнювання тексту по центру */
+    display: flex; /* Використовуємо Flexbox для вирівнювання */
+    flex-direction: column; /* Розташовуємо елементи вертикально */
+    align-items: center; /* Вирівнюємо по центру */
+    gap: 8px; /* Відступи між елементами всередині */
+}
+
+.fact-item .icon {
+    font-size: 1.8em;
+    color: #5b6ed1; /* Колір іконок фактів */
+    margin-bottom: 5px; /* Відступ знизу для відокремлення від тексту */
+}
+
+.fact-item p {
+    font-size: 0.95em; /* Розмір шрифту для тексту фактів */
+    color: #555; /* Темно-сірий колір для тексту фактів */
+    font-weight: 500; /* Напівжирний шрифт для тексту фактів */
+}
+
+.fact-item span {
+    font-weight: 600; /* Жирний шрифт для значень фактів */
+    color: #333; /* Темно-сірий колір для значень фактів */
+}
+
+.fact-item:hover {
+    transform: translateY(-5px);/* Легкий підйом при наведенні */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);/* Легка тінь для об'єму при наведенні */
+    cursor: pointer; /* Курсор у вигляді руки при наведенні */
+    transition: all 0.3s ease; /* Плавний перехід для підйому і тіні */
+}
+
+.fact-item.highlight {
+    border: 2px solid #5b6ed1; /* Товста рамка для виділених фактів */
+    background-color: #e0e5ed; /* Світліший фон для виділених фактів */
+}
+
+.recent-events-card h2 {
+    font-size: 1.8em; /* Розмір заголовку для картки подій */
+    color: #4a5a9d; /* Темно-синій колір для заголовку */
+    margin-bottom: 20px; /* Відступ знизу для відокремлення від списку подій */
+}
+
+.event-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.event-item {
+    background-color: #f9f9f9;
+    padding: 12px 18px;
+    border-left: 4px solid #7a8efd; /* Декоративна лінія зліва */
+    border-radius: 6px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.event-item .event-date {
+    font-weight: 600;
+    color: #5b6ed1;
+    white-space: nowrap; /* Щоб дата не переносилася */
+}
+
+.event-item p {
+    color: #555;
+    flex-grow: 1; /* Дозволяє тексту займати всю доступну ширину */
+}
+
+/* Стилі для кнопки "Додати нову подію" */
+.add-event-btn {
+    display: inline-flex; /* Дозволяє центрувати вміст і використовувати flexbox */
+    align-items: center; /* Вирівнювання тексту та іконки по центру по вертикалі */
+    justify-content: center; /* Вирівнювання тексту та іконки по центру по горизонталі */
+    padding: 12px 25px; /* Внутрішні відступи: 12px зверху/знизу, 25px зліва/справа */
+    background-color: #7a8efd; /* Основний колір кнопки (фіолетово-синій, як у рамки аватара) */
+    color: #ffffff; /* Колір тексту - білий */
+    border: none; /* Прибрати стандартну рамку кнопки */
+    border-radius: 8px; /* Заокруглені кути */
+    font-size: 1.1em; /* Розмір тексту */
+    font-weight: 600; /* Жирність тексту */
+    cursor: pointer; /* Змінити курсор на "руку" при наведенні */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Плавні переходи для анімації */
+    margin-top: 20px; /* Відступ зверху від попереднього елемента */
+    width: fit-content; /* Ширина кнопки по ширині її вмісту */
+    box-shadow: 0 4px 15px rgba(122, 142, 253, 0.4); /* М'яка тінь для об'ємності */
+}
+
+/* Анімація при наведенні мишки (hover) */
+.add-event-btn:hover {
+    background-color: #5b6ed1; /* Трохи темніший колір при наведенні */
+    transform: translateY(-2px); /* Кнопка трошки "піднімається" */
+    box-shadow: 0 6px 20px rgba(122, 142, 253, 0.5); /* Тінь стає більш виразною */
+}
+
+/* Анімація при натисканні (active) */
+.add-event-btn:active {
+    background-color: #4a5a9d; /* Ще темніший колір при натисканні */
+    transform: translateY(0); /* Кнопка повертається у вихідне положення */
+    box-shadow: 0 2px 8px rgba(122, 142, 253, 0.3); /* Тінь зменшується */
+}
+
+/* Опціонально: Якщо хочеш додати іконку "+" поруч з текстом */
+.add-event-btn::before {
+    content: '+'; /* Вставляємо символ плюса */
+    font-size: 1.2em; /* Розмір іконки */
+    margin-right: 8px; /* Відступ між іконкою та текстом */
+    font-weight: 700; /* Зробимо плюс жирнішим */
+}
+
+@media (max-width: 768px) { /* Якщо ширина екрана менше 768px */
+    .main-header {
+        flex-direction: column; /* Елементи в шапці стануть один під одним */
+        gap: 15px;
+        text-align: center;
+    }
+
+    .main-nav ul {
+        justify-content: center; /* Центруємо меню на мобільних */
+    }
+
+    .profile-header {
+        flex-direction: column; /* Аватар і інфо улюбленця теж стануть один під одним */
+        text-align: center;
+    }
+
+    .pet-profile-card,
+    .recent-events-card {
+        padding: 18px; /* Зменшимо внутрішні відступи на мобільних */
+    }
+
+    .pet-info-main h1 {
+        font-size: 2em; /* Зменшимо заголовок */
+    }
+}
+
+/* --- Модальне Вікно --- */
+
+.modal-overlay {
+    display: none; /* Сховати модальне вікно за замовчуванням */
+    position: fixed; /* Фіксована позиція, щоб перекривало весь екран */
+    z-index: 2000; /* Щоб було поверх інших елементів */
+    top: 0; /* Початок з верхнього краю */
+    left: 0; /* Початок з лівого краю */
+    width: 100%; /* Ширина на весь екран */
+    height: 100%; /* Висота на весь екран */
+    overflow: auto; /* Дозволяємо скролінг, якщо контент не вміщується */
+    background-color: rgba(0, 0, 0, 0.6); /* Напівпрозорий чорний фон */
+    /* display: flex;  <-- ЦЕЙ РЯДОК БУВ ПРОБЛЕМОЮ! ВИДАЛЕНО! */
+    justify-content: center; /* Центруємо по горизонталі */
+    align-items: center; /* Центруємо по вертикалі */
+}
+
+.modal-overlay.active { /* Коли модальне вікно активне */
+    display: flex; /* Тільки тут ми показуємо модальне вікно з flexbox */
+}
+
+.modal-content {
+    background-color: #fefefe; /* Білий фон для контенту модального вікна */
+    margin: auto; /* Центруємо контент */
+    padding: 30px; /* Внутрішні відступи для контенту */
+    border-radius: 12px; /* Закруглені кути для контенту */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);/* Легка тінь для об'єму */
+    width: 90%; /* Ширина модального вікна */
+    max-width: 500px; /* Максимальна ширина, щоб не розтягувалося занадто */
+    position: relative; /* Для позиціонування кнопки закриття */
+    animation: fadeIn 0.3s ease-out; /* Анімація появи модального вікна */
+}
+
+@keyframes fadeIn { /* Опис анімації */
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close-button {
+    color: #aaa; /* Світло-сірий колір для кнопки закриття */
+    position: absolute; /* Абсолютне позиціонування для кнопки закриття */
+    top: 15px; /* Відступ зверху */
+    right: 25px; /* Відступ справа */
+    font-size: 28px; /* Розмір шрифту для кнопки закриття */
+    font-weight: bold; /* Жирний шрифт для кнопки закриття */
+    cursor: pointer; /* Курсор у вигляді руки при наведенні */
+    transition: color 0.3s ease; /* Плавний перехід кольору при наведенні */
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+    text-decoration: none; /* Прибираємо підкреслення при наведенні */
+}
+
+.modal-content h2 {
+    color: #4a5a9d; /* Темно-синій колір для заголовку модального вікна */
+    font-size: 2em; /* Розмір заголовку */
+    margin-bottom: 25px;
+    text-align: center; /* Вирівнювання заголовку по центру */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Відступ знизу для групи полів форми */
+}
+
+.form-group label {
+    display: block; /* Відображення мітки як блоку */
+    margin-bottom: 8px; /* Відступ знизу для мітки */
+    font-weight: 600; /* Жирний шрифт для мітки */
+    color: #555; /* Темно-сірий колір для мітки */
+}
+
+.form-group input[type="date"],
+.form-group textarea {
+    width: calc(100% - 20px);
+    padding: 12px 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    /* Додамо трохи більше внутрішнього відступу праворуч для Flatpickr іконки */
+    padding-right: 35px; /* Залиште місце для іконки календаря */
+    /* Додамо плавний перехід для загального вигляду */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="date"] {
+    cursor: pointer;
+    background-color: #f9f9f9;
+    /* Забезпечимо, щоб іконка календаря Flatpickr була видимою та не обрізалась */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%237a8efd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* Позиція іконки справа з відступом 10px */
+    background-size: 20px 20px; /* Розмір іконки */
+    -webkit-appearance: none; /* Прибрати стандартний вигляд поля дати на WebKit (Chrome, Safari) */
+    -moz-appearance: none;    /* Прибрати стандартний вигляд поля дати на Mozilla (Firefox) */
+    appearance: none;         /* Прибрати стандартний вигляд поля дати */
+}
+
+.form-group input[type="date"]:focus,
+.form-group textarea:focus {
+    border-color: #7a8efd; /* Колір рамки при фокусі */
+    outline: none; /* Прибираємо стандартне обведення */
+    box-shadow: 0 0 0 3px rgba(122, 142, 253, 0.2); /* Легка тінь при фокусі */
+}
+
+.submit-event-btn {
+    width: 100%; /* Ширина кнопки на всю ширину контейнера */
+    padding: 14px 25px; /* Внутрішні відступи для кнопки */
+    background-color: #5b6ed1; /* Основний колір кнопки */
+    color: #ffffff; /* Білий колір тексту */
+    border: none; /* Прибираємо стандартну рамку кнопки */
+    border-radius: 8px; /* Закруглені кути для кнопки */
+    font-size: 1.1em; /* Розмір шрифту для кнопки */
+    font-weight: 600; /* Жирний шрифт для кнопки */
+    cursor: pointer; /* Курсор у вигляді руки при наведенні */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Плавні переходи для анімації */
+    box-shadow: 0 4px 15px rgba(91, 110, 209, 0.4); /* М'яка тінь для об'ємності */
+}
+
+.submit-event-btn:hover {
+    background-color: #4a5a9d; /* Трохи темніший колір при наведенні */
+    transform: translateY(-2px); /* Кнопка трошки "піднімається" */
+    box-shadow: 0 6px 20px rgba(91, 110, 209, 0.5); /* Тінь стає більш виразною */
+}
+
+.submit-event-btn:active {
+    background-color: #3a4a7d; /* Ще темніший колір при натисканні */
+    transform: translateY(0); /* Кнопка повертається у вихідне положення */
+    box-shadow: 0 2px 8px rgba(91, 110, 209, 0.3); /* Тінь зменшується */
+}
+
+/* Адаптивність для форми */
+@media (max-width: 500px) {
+    .modal-content {
+        padding: 20px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.6em;
+    }
+}
+
+/* Стиль для повідомлення, якщо немає подій */
+.no-events-message {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    padding: 15px;
+    background-color: #f6f6f6;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+/* Стилі для кнопки видалення події */
+.delete-event-btn {
+    background: none;
+    border: none;
+    color: #ff6b6b; /* Червоний колір для "видалення" */
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: auto; /* Відсуває кнопку вправо */
+    padding: 0 5px;
+    transition: color 0.2s ease;
+}
+
+.delete-event-btn:hover {
+    color: #e63946;
+}
+
+/* --- Кастомні стилі для Flatpickr (Datepicker) --- */
+
+/* Основний колір активних елементів календаря */
+.flatpickr-day.selected,
+.flatpickr-day.selected:hover,
+.flatpickr-day.startRange,
+.flatpickr-day.startRange:hover,
+.flatpickr-day.endRange,
+.flatpickr-day.endRange:hover,
+.flatpickr-day.flatpickr-disabled,
+.flatpickr-day.flatpickr-disabled:hover {
+    background: #7a8efd !important; /* Ваш основний синій колір */
+    border-color: #7a8efd !important;
+    color: #ffffff !important;
+}
+
+/* Колір при наведенні мишки на день */
+.flatpickr-day:hover,
+.flatpickr-day:focus {
+    color: #5b6ed1; /* Трохи темніший відтінок вашого синього */
+    background: #eef1f6; /* Світліший фон */
+    border-color: #eef1f6;
+}
+
+/* Колір "сьогоднішнього" дня */
+.flatpickr-day.today {
+    border-color: #5b6ed1;
+    color: #5b6ed1;
+}
+
+.flatpickr-day.today:hover,
+.flatpickr-day.today:focus {
+    background: #7a8efd;
+    color: #ffffff;
+}
+
+/* Навігація по місяцях/роках */
+.flatpickr-prev-month,
+.flatpickr-next-month {
+    color: #5b6ed1; /* Колір стрілок навігації */
+}
+
+.flatpickr-prev-month:hover,
+.flatpickr-next-month:hover {
+    color: #4a5a9d;
+}
+
+/* Заголовок календаря (місяць і рік) */
+.flatpickr-current-month .flatpickr-monthDropdown-months,
+.flatpickr-current-month .numInputWrapper,
+.flatpickr-current-month span.cur-month {
+    color: #4a5a9d; /* Темно-синій колір */
+    font-weight: 600; /* Жирний шрифт */
+}
+
+/* Контейнер календаря - тінь, заокруглення */
+.flatpickr-calendar {
+    border-radius: 8px; /* Заокруглені кути, як у ваших карток */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Більш виразна тінь */
+    border: none; /* Прибираємо стандартну рамку */
+    font-family: 'Poppins', sans-serif; /* Використовуємо ваш шрифт */
+}
+
+/* Оновлення стилю для елементу input */
+.form-group input[type="date"] {
+    cursor: pointer; /* Курсор у вигляді руки при наведенні на поле дати */
+    background-color: #f9f9f9; /* Зробимо фон трохи темнішим, щоб було видно, що це поле */
+}
+
+/* Переконаємось, що дні тижня також мають ваш шрифт */
+.flatpickr-weekday {
+    font-family: 'Poppins', sans-serif;
+    color: #7a8efd; /* Синій колір для днів тижня */
+    font-weight: 600;
+}
